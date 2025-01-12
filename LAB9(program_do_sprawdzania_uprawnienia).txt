@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#odczytujemy plik /etc/shadow
+
+if [ -r /etc/shadow ]; then
+    cat /etc/shadow
+else
+    echo "Nie odczytuję pliku /etc/shadow. NIE MASZ UPRAWNIEŃ!"
+fi

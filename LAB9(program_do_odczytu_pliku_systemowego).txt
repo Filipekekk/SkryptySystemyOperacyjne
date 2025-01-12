@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+//otwieramy ten plik (w trybie odczytu)
+    FILE *plik = fopen("/etc/shadow", "r");
+    if (plik == NULL) {
+        //jeśli plik nie został otwarty
+        printf("Blad: nie moge otworzyc pliku\n");
+        return 1;
+    }
+
+    //tworze miejsce na przechowanie tego odczytu
+    char tekst[100];
+
+    //czytanie tego pliku przez pętle linijka po linijce
+    while (fgets(tekst, 100, plik) != NULL) {
+        printf("%s", tekst);
+    }
+
+    //w internecie pisali ze trzeba zamknac na koncu ten plik
+    fclose(plik);
+
+    return 0;
+}
